@@ -1,6 +1,13 @@
 import React from 'react';
+import Navbar from './components/Navbar';
+import HomePage from './pages/Home';
 import './styles/main.css';
 
-const App = () => <div><h1 className="text-3xl">Hello World</h1></div>;
+const App = () => (
+  <div>
+    <Navbar />
+    <HomePage />
+  </div>
+);
 
 export default App;
