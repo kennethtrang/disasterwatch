@@ -9,10 +9,10 @@ const Navbar = ({ logo }) => (
       className="h-10 mx-8"
       alt="DisasterWatch logo"
     />
-    <Tab type={disaster.Fire} />
-    <Tab type={disaster.Earthquake} />
-    <Tab type={disaster.Tornado} />
-    <Tab type={disaster.Hurricane} />
+    <Tab type={disaster.fire} />
+    <Tab type={disaster.earthquake} />
+    <Tab type={disaster.tornado} />
+    <Tab type={disaster.hurricane} />
   </div>
 );
 

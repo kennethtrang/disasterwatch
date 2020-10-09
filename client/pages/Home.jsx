@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import searchIcon from '../assets/search-icon.png';
 
 const Home = ({ logo }) => {
   const [location, setLocation] = useState('');
@@ -19,13 +20,29 @@ const Home = ({ logo }) => {
         <span className="m-1 text-7xl font-sans font-bold">DisasterWatch</span>
       </section>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-          className="border border-gray-800 rounded-md w-64 h-10 p-2 focus:outline-none focus:shadow-outline"
-          placeholder="Search for a location"
-        />
+        <label htmlFor="disaster-option">
+          <select
+            name="disaster-option"
+            id="disaster-option"
+            className="border border-gray-800 rounded-md h-10 p-2 mx-2 focus:outline-none focus:shadow-outline"
+          >
+            <option value="fire">Fire</option>
+            <option value="earthquake">Earthquake</option>
+            <option value="tornado">Tornado</option>
+            <option value="hurricane">Hurricane</option>
+          </select>
+        </label>
+        <label htmlFor="location" className="inline-flex items-center">
+          <input
+            id="location"
+            type="text"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            className="border border-gray-800 rounded-md w-64 h-10 p-2 focus:outline-none focus:shadow-outline"
+            placeholder="Search for a city"
+          />
+          <img src={searchIcon} className="h-4 -m-6" alt="search icon" />
+        </label>
       </form>
     </div>
   );
