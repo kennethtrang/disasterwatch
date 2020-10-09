@@ -667,6 +667,12 @@ module.exports = {
         },
       },
     },
+    extend: {
+      spacing: {
+        '33p': '33%',
+        '50p': '50%',
+      },
+    },
   },
   variants: {
     accessibility: ['responsive', 'focus'],
