@@ -7,6 +7,7 @@ const Home = ({ logo }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('in handleSubmit');
+    console.log(location);
   };
 
   return (
@@ -14,7 +15,7 @@ const Home = ({ logo }) => {
       <section className="container inline-flex justify-center items-center mt-33p">
         <img
           src={logo}
-          className="h-20 m-1"
+          className="h-20 m-1 "
           alt="DisasterWatch logo"
         />
         <span className="m-1 text-7xl font-sans font-bold">DisasterWatch</span>

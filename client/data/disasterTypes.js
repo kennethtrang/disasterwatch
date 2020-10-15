@@ -1,6 +1,6 @@
 export default {
-  fire: 'Fire',
-  earthquake: 'Earthquake',
-  tornado: 'Tornado',
-  hurricane: 'Hurricane',
+  fire: 'fire',
+  earthquake: 'earthquake',
+  tornado: 'tornado',
+  hurricane: 'hurricane',
 };
