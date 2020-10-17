@@ -20,7 +20,7 @@ const UserForm = ({ type, setIsFormOpen }) => {
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="border-2 border-gray-500 rounded"
+            className="border-2 border-gray-500 rounded px-1"
           />
         </label>
         <label htmlFor="password" className="m-1">
@@ -31,7 +31,7 @@ const UserForm = ({ type, setIsFormOpen }) => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="border-2 border-gray-500 rounded"
+            className="border-2 border-gray-500 rounded px-1"
           />
         </label>
         {
@@ -46,7 +46,7 @@ const UserForm = ({ type, setIsFormOpen }) => {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="border-2 border-gray-500 rounded"
+                  className="border-2 border-gray-500 rounded px-1"
                 />
               </label>
               <label htmlFor="city" className="m-1">
@@ -57,7 +57,7 @@ const UserForm = ({ type, setIsFormOpen }) => {
                   type="text"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
-                  className="border-2 border-gray-500 rounded"
+                  className="border-2 border-gray-500 rounded px-1"
                 />
               </label>
               <label htmlFor="state-option" className="m-1 mr-4">

@@ -12,7 +12,8 @@ module.exports = {
     compress: true,
     port: 8080,
     proxy: {
-      '/': 'http://localhost:4000/graphql',
+      '/graphql': 'http://localhost:4000/graphql',
+      '/': 'http://localhost:4000/',
     },
   },
   module: {

@@ -20,18 +20,20 @@ const startServer = async () => {
     const server = new ApolloServer({
       typeDefs,
       resolvers,
+      context: () => ({
+        env: process.env,
+      }),
     });
 
-    app.use(express.urlencoded({ extended: false }));
-    app.use(express.json());
-    app.use(express.static('assets'));
+    // app.use(express.urlencoded({ extended: false }), express.json());
+    // app.use(express.static('assets'));
 
-    app.use('/', (req, res) => res.status(200).sendFile(path.resolve(__dirname, '../index.html')));
+    // app.use('/', (req, res) => res.status(200).sendFile(path.resolve(__dirname, '../index.html')));
 
     server.applyMiddleware({ app });
 
     app.listen({ port: 4000 }, () => {
-      console.log(`🚀  Server ready at http://localhost:4000${server.graphqlPath}}`);
+      console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
     });
   } catch (e) {
     console.log('Error starting server: ', e);
