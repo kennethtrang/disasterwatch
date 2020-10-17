@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import Error from '../components/Error';
 import searchIcon from '../assets/search-icon.png';
 
 const Home = ({ logo }) => {
+  const [selectedDisaster, setSelectedDisaster] = useState('fire');
   const [location, setLocation] = useState('');
+  const [locationError, setLocationError] = useState(false);
+
+  const setLocationHandler = (location) => {
+    if (locationError) setLocationError(false);
+    setLocation(location);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('in handleSubmit');
-    console.log(location);
+    console.log(selectedDisaster, location);
+    const trimmedLocation = location.trim();
+    const isValid = (/[a-zA-Z]/).test(trimmedLocation);
+    if (!isValid) setLocationError(true);
+    const history = useHistory();
+    console.log(history);
+    history.push(`/${selectedDisaster}`);
   };
 
   return (
@@ -25,6 +39,7 @@ const Home = ({ logo }) => {
           <select
             name="disaster-option"
             id="disaster-option"
+            onChange={(e) => setSelectedDisaster(e.target.value)}
             className="border border-gray-800 rounded-md h-10 p-2 mx-2 focus:outline-none focus:shadow-outline"
           >
             <option value="fire">Fire</option>
@@ -38,13 +53,20 @@ const Home = ({ logo }) => {
             id="location"
             type="text"
             value={location}
-            onChange={(e) => setLocation(e.target.value)}
+            onChange={(e) => {
+              if (locationError) setLocationError(false);
+              setLocation(e.target.value);
+            }}
             className="border border-gray-800 rounded-md w-64 h-10 p-2 focus:outline-none focus:shadow-outline"
             placeholder="Search for a city"
           />
           <img src={searchIcon} className="h-4 -m-6" alt="search icon" />
         </label>
       </form>
+      {
+        locationError
+        && <Error>Please enter a valid location</Error>
+      }
     </div>
   );
 };
