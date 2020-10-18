@@ -22,12 +22,7 @@ const newsService = {
         },
       );
 
-      const results = {
-        totalResults: data.totalResults,
-        articles: data.articles,
-      };
-
-      return results;
+      return data.articles;
     } catch (e) {
       console.log('Error in getNews: ', e);
     }

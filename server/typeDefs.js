@@ -22,7 +22,7 @@ const typeDefs = gql`
     description: String!
     source: String!
     publishedAt: String!
-    img: String!
+    urlToImage: String
     url: String!
   }
 

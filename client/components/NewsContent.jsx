@@ -10,7 +10,7 @@ const NEWS = gql`
       description
       source
       publishedAt
-      img
+      urlToImage
       url
     }
   }

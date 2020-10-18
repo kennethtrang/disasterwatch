@@ -12,17 +12,11 @@ const resolvers = {
     }),
     news: async (_, { input }, ctx) => {
       const newsResults = await newsService.getNews(input.disaster, input.city, input.state);
-      const newsItems = newsResults.articles.map((article) => ({
-        id: article.title,
-        title: article.title,
-        description: article.description,
-        source: article.source.name,
-        publishedAt: article.publishedAt,
-        img: article.urlToImage,
-        url: article.url,
-      }));
-
-      return newsItems;
+      newsResults.forEach((article) => {
+        article.id = article.title;
+        article.source = article.source.name;
+      });
+      return newsResults;
     },
     videos: async (_, { input }, ctx) => {
       const videoResults = await videoService.getVideos(input.disaster, input.city, input.state);
