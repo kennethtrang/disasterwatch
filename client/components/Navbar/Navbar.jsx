@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import Tab from './Tab';
 import UserForm from './UserForm';
-import disaster from '../../data/disasterTypes';
+import { disasterTitles } from '../../data/disasterTypes';
 
 const Navbar = ({ logo }) => {
   const userButtonStyle = 'm-4 p-1 w-24 border-2 border-blue-400 rounded-md';
@@ -27,11 +28,18 @@ const Navbar = ({ logo }) => {
             className="h-10 mx-8"
             alt="DisasterWatch logo"
           />
-          <Tab type={disaster.fire} />
-          <Tab type={disaster.earthquake} />
-          <Tab type={disaster.tornado} />
-          <Tab type={disaster.hurricane} />
-
+          <NavLink to="/wildfire">
+            <Tab type={disasterTitles.wildfire} />
+          </NavLink>
+          <NavLink to="/earthquake">
+            <Tab type={disasterTitles.earthquake} />
+          </NavLink>
+          <NavLink to="/tornado">
+            <Tab type={disasterTitles.tornado} />
+          </NavLink>
+          <NavLink to="/hurricane">
+            <Tab type={disasterTitles.hurricane} />
+          </NavLink>
         </span>
         <span
           id="nav-right"

@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const cors = require('cors');
 const { ApolloServer } = require('apollo-server-express');
 require('dotenv').config();
 
@@ -17,23 +18,26 @@ const startServer = async () => {
 
     const app = express();
 
-    const server = new ApolloServer({
+    const apolloServer = new ApolloServer({
       typeDefs,
       resolvers,
-      context: () => ({
-        env: process.env,
-      }),
     });
 
-    // app.use(express.urlencoded({ extended: false }), express.json());
-    // app.use(express.static('assets'));
+    app.use(cors({
+      origin: 'http://localhost:8080',
+      credentials: true,
+    }));
+    app.use(express.urlencoded({ extended: false }));
+    app.use(express.json());
+    app.use(express.static('assets'));
 
-    // app.use('/', (req, res) => res.status(200).sendFile(path.resolve(__dirname, '../index.html')));
-
-    server.applyMiddleware({ app });
+    apolloServer.applyMiddleware({
+      app,
+      cors: false,
+    });
 
     app.listen({ port: 4000 }, () => {
-      console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
+      console.log(`🚀 Server ready at http://localhost:4000${apolloServer.graphqlPath}`);
     });
   } catch (e) {
     console.log('Error starting server: ', e);

@@ -1,6 +1,8 @@
-export default {
-  fire: 'fire',
-  earthquake: 'earthquake',
-  tornado: 'tornado',
-  hurricane: 'hurricane',
+export const disasterTitles = {
+  wildfire: 'Wildfire',
+  earthquake: 'Earthquake',
+  tornado: 'Tornado',
+  hurricane: 'Hurricane',
 };
+
+export const disasterList = ['wildfire', 'earthquake', 'tornado', 'hurricane'];

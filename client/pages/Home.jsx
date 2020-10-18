@@ -1,31 +1,30 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import Error from '../components/Error';
+import { disasterList, disasterTitles } from '../data/disasterTypes';
 import searchIcon from '../assets/search-icon.png';
 
-const Home = ({ logo }) => {
-  const [selectedDisaster, setSelectedDisaster] = useState('fire');
+const Home = ({ logo, history }) => {
+  const [selectedDisaster, setSelectedDisaster] = useState(disasterList[0]);
   const [location, setLocation] = useState('');
   const [locationError, setLocationError] = useState(false);
 
-  const setLocationHandler = (location) => {
-    if (locationError) setLocationError(false);
-    setLocation(location);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(selectedDisaster, location);
     const trimmedLocation = location.trim();
-    const isValid = (/[a-zA-Z]/).test(trimmedLocation);
-    if (!isValid) setLocationError(true);
-    const history = useHistory();
-    console.log(history);
+    const isLocationValid = (/[a-zA-Z]/).test(trimmedLocation);
+    if (!isLocationValid) {
+      setLocationError(true);
+      return;
+    }
     history.push(`/${selectedDisaster}`);
   };
 
+  const disasterDropdown = disasterList.map(
+    (disaster) => <option key={disaster} value={disaster}>{disasterTitles[disaster]}</option>,
+  );
+
   return (
-    <div className="flex flex-col items-center bg-gray-200">
+    <div id="home" className="flex flex-col items-center bg-gray-200">
       <section className="container inline-flex justify-center items-center mt-33p">
         <img
           src={logo}
@@ -39,13 +38,11 @@ const Home = ({ logo }) => {
           <select
             name="disaster-option"
             id="disaster-option"
+            defaultValue={disasterList[0]}
             onChange={(e) => setSelectedDisaster(e.target.value)}
             className="border border-gray-800 rounded-md h-10 p-2 mx-2 focus:outline-none focus:shadow-outline"
           >
-            <option value="fire">Fire</option>
-            <option value="earthquake">Earthquake</option>
-            <option value="tornado">Tornado</option>
-            <option value="hurricane">Hurricane</option>
+            {disasterDropdown}
           </select>
         </label>
         <label htmlFor="location" className="inline-flex items-center">

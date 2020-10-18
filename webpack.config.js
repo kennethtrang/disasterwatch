@@ -11,10 +11,6 @@ module.exports = {
     publicPath: '/build',
     compress: true,
     port: 8080,
-    proxy: {
-      '/graphql': 'http://localhost:4000/graphql',
-      '/': 'http://localhost:4000/',
-    },
   },
   module: {
     rules: [

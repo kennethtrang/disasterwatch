@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/server.js",
+    "start": "nodemon server/server.js",
     "build": "npm run build:css && cross-env NODE_ENV=production webpack",
     "dev": "npm run watch:css && concurrently \"cross-env NODE_ENV=development webpack-dev-server --open\" \"cross-env nodemon server/server.js || true\"",
     "build:css": "postcss client/styles/tailwind.css -o client/styles/main.css",
@@ -15,11 +15,13 @@
   "author": "Kenneth Trang",
   "license": "MIT",
   "dependencies": {
+    "@apollo/client": "^3.2.4",
     "apollo-server": "^2.18.2",
     "apollo-server-express": "^2.18.2",
     "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "cross-env": "^6.0.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
