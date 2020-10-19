@@ -3,10 +3,15 @@ import Error from '../components/Error';
 import { disasterList, disasterTitles } from '../data/disasterTypes';
 import searchIcon from '../assets/search-icon.png';
 
-const Home = ({ logo, history }) => {
+const Home = ({
+  logo,
+  history,
+  location,
+  setLocation,
+  locationError,
+  setLocationError,
+}) => {
   const [selectedDisaster, setSelectedDisaster] = useState(disasterList[0]);
-  const [location, setLocation] = useState('');
-  const [locationError, setLocationError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();

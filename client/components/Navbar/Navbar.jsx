@@ -29,19 +29,19 @@ const Navbar = ({ logo }) => {
             alt="DisasterWatch logo"
           />
           <NavLink to="/wildfire">
-            <Tab type={disasterTitles.wildfire} />
+            <Tab disaster={disasterTitles.wildfire} />
           </NavLink>
           <NavLink to="/earthquake">
-            <Tab type={disasterTitles.earthquake} />
+            <Tab disaster={disasterTitles.earthquake} />
           </NavLink>
           <NavLink to="/tornado">
-            <Tab type={disasterTitles.tornado} />
+            <Tab disaster={disasterTitles.tornado} />
           </NavLink>
           <NavLink to="/hurricane">
-            <Tab type={disasterTitles.hurricane} />
+            <Tab disaster={disasterTitles.hurricane} />
           </NavLink>
         </span>
-        <span
+        {/* <span
           id="nav-right"
           className="flex items-center mr-10"
         >
@@ -61,11 +61,11 @@ const Navbar = ({ logo }) => {
           >
             Sign Up
           </button>
-        </span>
+        </span> */}
       </div>
-      {
+      {/* {
         isFormOpen && <UserForm type={formType} setIsFormOpen={setIsFormOpen} />
-      }
+      } */}
     </>
   );
 };

@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
-import NewsContent from '../components/NewsContent';
+import React from 'react';
+import NewsContent from '../components/News/NewsContent';
+import VideoContent from '../components/Video/VideoContent';
 
-const Content = ({ disaster }) => {
-  const [data, setData] = useState([]);
+const Disaster = ({ disaster, location }) => (
+  <div className="w-5/6 mt-32 mx-12 mb-12 grid gap-4 grid-cols-2 grid-rows-2">
+    <VideoContent disaster={disaster} location={location} />
+    <NewsContent disaster={disaster} location={location} />
+  </div>
+);
 
-  return (
-    <div className="mt-32">
-      <h1>{disaster}</h1>
-      <NewsContent disaster={disaster} />
-    </div>
-  );
-};
-
-export default Content;
+export default Disaster;
