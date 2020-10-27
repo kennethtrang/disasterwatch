@@ -26,9 +26,8 @@ const typeDefs = gql`
     url: String!
   }
 
-  type Video {
+  type VideoItem {
     id: ID!
-    title: String!
   }
 
   input SearchInput {
@@ -40,7 +39,7 @@ const typeDefs = gql`
   type Query {
     user: User!
     news(input: SearchInput!): [NewsItem]!
-    videos(input: SearchInput!): [Video]!
+    videos(input: SearchInput!): [VideoItem]!
   }
 `;
 

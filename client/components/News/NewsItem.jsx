@@ -10,8 +10,8 @@ const NewsItem = ({ article }) => {
       <div className="m-4 rounded border border-gray-300 p-2">
         <h4 className="font-bold text-lg">{title}</h4>
         <h5>{source}</h5>
-        <img src={urlToImage} className="col-span-1" alt="article" />
-        <section className="my-4">
+        <img src={urlToImage} className="col-span-1 my-2" alt="article" />
+        <section className="my-2">
           {description}
         </section>
         <section>

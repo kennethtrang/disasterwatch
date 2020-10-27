@@ -15,9 +15,7 @@ const resolvers = {
       const videoResults = await videoService.getVideos(input.disaster, input.city, input.state);
       const videoItems = videoResults.map((video) => ({
         id: video.id.videoId,
-        title: video.snippet.title,
       }));
-
       return videoItems;
     },
   },

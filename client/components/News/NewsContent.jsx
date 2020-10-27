@@ -33,7 +33,7 @@ const NewsContent = ({ disaster, location }) => {
   const newsToDisplay = data.news.map((article) => <NewsItem key={article.id} article={article} />);
 
   return (
-    <div className="bg-white border rounded border-gray-400">
+    <div className="bg-white border rounded border-gray-400 row-span-2">
       <div className="overflow-scroll overflow-x-hidden max-h-full">
         {newsToDisplay}
       </div>
