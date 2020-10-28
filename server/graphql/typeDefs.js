@@ -19,9 +19,9 @@ const typeDefs = gql`
   type NewsItem {
     id: ID!
     title: String!
-    description: String!
+    description: String
     source: String!
-    publishedAt: String!
+    publishedAt: String
     urlToImage: String
     url: String!
   }

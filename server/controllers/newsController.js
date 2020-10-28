@@ -3,7 +3,7 @@ const { stringify } = require('query-string');
 
 const newsBaseURL = 'https://newsapi.org/v2/everything';
 
-const newsService = {
+const newsController = {
   getNews: async (disaster, city, state) => {
     try {
       const searchString = `${disaster} ${city} ${state || ''}`;
@@ -29,4 +29,4 @@ const newsService = {
   },
 };
 
-module.exports = newsService;
+module.exports = newsController;

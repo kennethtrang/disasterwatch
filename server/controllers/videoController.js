@@ -3,7 +3,7 @@ const { stringify } = require('query-string');
 
 const videoBaseURL = 'https://www.googleapis.com/youtube/v3/search';
 
-const videoService = {
+const videoController = {
   getVideos: async (disaster, city, state) => {
     try {
       const searchString = `${disaster} ${city} ${state || ''}`;
@@ -22,4 +22,4 @@ const videoService = {
   },
 };
 
-module.exports = videoService;
+module.exports = videoController;

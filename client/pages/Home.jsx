@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Error from '../components/Error';
+import ErrorMsg from '../components/ErrorMsg';
 import { disasterList, disasterTitles } from '../data/disasterTypes';
 import searchIcon from '../assets/search-icon.png';
 
@@ -67,7 +67,7 @@ const Home = ({
       </form>
       {
         locationError
-        && <Error>Please enter a valid location</Error>
+        && <ErrorMsg>Please enter a valid location</ErrorMsg>
       }
     </div>
   );
