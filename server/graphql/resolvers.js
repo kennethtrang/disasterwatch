@@ -31,6 +31,17 @@ const resolvers = {
       }
     },
   },
+  Mutation: {
+    signUp: async (_, { input }) => {
+      try {
+        // authController
+        return input;
+      } catch (error) {
+        console.log('Error in signUp Mutation resolver: ', error);
+        return error;
+      }
+    },
+  },
 };
 
 module.exports = resolvers;

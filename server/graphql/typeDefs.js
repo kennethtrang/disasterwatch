@@ -36,10 +36,22 @@ const typeDefs = gql`
     disaster: DisasterType!
   }
 
+  input NewUserInput {
+    username: String!
+    password: String!
+    email: String!
+    city: String!
+    state: String!
+  }
+
   type Query {
     user: User!
     news(input: SearchInput!): [NewsItem]!
     videos(input: SearchInput!): [VideoItem]!
+  }
+
+  type Mutation {
+    signUp(input: NewUserInput!): User!
   }
 `;
 

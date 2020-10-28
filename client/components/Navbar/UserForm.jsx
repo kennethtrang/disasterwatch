@@ -1,6 +1,20 @@
 import React, { useState } from 'react';
+import gql from 'graphql-tag';
+import { useMutation } from '@apollo/react-hooks';
 import { statesAbbreviations, statesNames } from '../../data/states';
 import closeIcon from '../../assets/close.png';
+
+const SIGN_UP = gql`
+  mutation SignUp($newUser: NewUserInput!) {
+    signUp(input: $newUser) {
+      id
+      username
+      email
+      city
+      state
+    }
+  }
+`;
 
 const UserForm = ({ type, setIsFormOpen }) => {
   const [username, setUsername] = useState('');
@@ -8,10 +22,37 @@ const UserForm = ({ type, setIsFormOpen }) => {
   const [email, setEmail] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
+  const [signUpUser, { data, loading, error }] = useMutation(
+    SIGN_UP,
+    // add cache update
+  );
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log({
+      username,
+      password,
+      email,
+      city,
+      state,
+    });
+    signUpUser({
+      variables: {
+        newUser: {
+          username,
+          password,
+          email,
+          city,
+          state,
+        },
+      },
+      // add optimistic response
+    });
+  };
 
   return (
     <div className="w-screen h-auto fixed bg-white mt-16 flex justify-between items-center">
-      <form className="flex flex-wrap items-center mx-8 p-3">
+      <form onSubmit={handleSubmit} className="flex flex-wrap items-center mx-8 p-3">
         <label htmlFor="username" className="m-1">
           Username:
           {' '}

@@ -41,7 +41,7 @@ const Navbar = ({ logo }) => {
             <Tab disaster={disasterTitles.hurricane} />
           </NavLink>
         </span>
-        {/* <span
+        <span
           id="nav-right"
           className="flex items-center mr-10"
         >
@@ -61,11 +61,11 @@ const Navbar = ({ logo }) => {
           >
             Sign Up
           </button>
-        </span> */}
+        </span>
       </div>
-      {/* {
+      {
         isFormOpen && <UserForm type={formType} setIsFormOpen={setIsFormOpen} />
-      } */}
+      }
     </>
   );
 };
