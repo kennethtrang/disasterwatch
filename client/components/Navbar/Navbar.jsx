@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Tab from './Tab';
 import UserForm from './UserForm';
-import { disasterTitles } from '../../data/disasterTypes';
+import { DISASTER_TITLES } from '../../data/disasters';
 
 const Navbar = ({ logo }) => {
   const userButtonStyle = 'm-4 p-1 w-24 border-2 border-blue-400 rounded-md';
@@ -30,16 +30,16 @@ const Navbar = ({ logo }) => {
             alt="DisasterWatch logo"
           />
           <NavLink to="/wildfire">
-            <Tab disaster={disasterTitles.wildfire} />
+            <Tab disaster={DISASTER_TITLES.wildfire} />
           </NavLink>
           <NavLink to="/earthquake">
-            <Tab disaster={disasterTitles.earthquake} />
+            <Tab disaster={DISASTER_TITLES.earthquake} />
           </NavLink>
           <NavLink to="/tornado">
-            <Tab disaster={disasterTitles.tornado} />
+            <Tab disaster={DISASTER_TITLES.tornado} />
           </NavLink>
           <NavLink to="/hurricane">
-            <Tab disaster={disasterTitles.hurricane} />
+            <Tab disaster={DISASTER_TITLES.hurricane} />
           </NavLink>
         </span>
         <span

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
-import { statesAbbreviations, statesNames } from '../../data/states';
+import { STATE_ABBREVIATIONS_LIST, STATE_NAMES } from '../../data/states';
 import closeIcon from '../../assets/close.png';
 
 const SIGN_UP = gql`
@@ -97,7 +97,7 @@ const UserForm = ({ type, setIsFormOpen }) => {
                   onChange={(e) => setState(e.target.value)}
                 >
                   {
-                    statesAbbreviations.map((stateAbbr) => <option key={stateAbbr} value={statesNames.stateAbbr}>{stateAbbr}</option>)
+                    STATE_ABBREVIATIONS_LIST.map((stateAbbr) => <option key={stateAbbr} value={STATE_NAMES.stateAbbr}>{stateAbbr}</option>)
                   }
                 </select>
               </label>

@@ -3,7 +3,7 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import HomePage from './pages/Home';
 import DisasterPage from './pages/Disaster';
-import { disasterNames } from './data/disasterTypes';
+import { DISASTER_TYPES } from './data/disasters';
 import './styles/main.css';
 import logo from './assets/dw.png';
 
@@ -18,16 +18,16 @@ const App = () => {
       <div className="h-screen w-screen flex justify-center bg-gray-200">
         <Switch>
           <Route path="/wildfire">
-            <DisasterPage disaster={disasterNames.wildfire} location={location} />
+            <DisasterPage disaster={DISASTER_TYPES.wildfire} location={location} />
           </Route>
           <Route path="/earthquake">
-            <DisasterPage disaster={disasterNames.earthquake} location={location} />
+            <DisasterPage disaster={DISASTER_TYPES.earthquake} location={location} />
           </Route>
           <Route path="/tornado">
-            <DisasterPage disaster={disasterNames.tornado} location={location} />
+            <DisasterPage disaster={DISASTER_TYPES.tornado} location={location} />
           </Route>
           <Route path="/hurricane">
-            <DisasterPage disaster={disasterNames.hurricane} location={location} />
+            <DisasterPage disaster={DISASTER_TYPES.hurricane} location={location} />
           </Route>
           <Route path="/">
             <HomePage

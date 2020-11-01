@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import NewsItem from './NewsItem';
-import { disasterList } from '../../data/disasterTypes';
+import { DISASTER_LIST } from '../../data/disasters';
 
 const NEWS = gql`
   query News($searchParams: SearchInput!) {
@@ -44,7 +44,7 @@ const NewsContent = ({ disaster, location }) => {
 };
 
 NewsContent.propTypes = {
-  disaster: PropTypes.oneOf(disasterList).isRequired,
+  disaster: PropTypes.oneOf(DISASTER_LIST).isRequired,
   location: PropTypes.string.isRequired,
 };
 

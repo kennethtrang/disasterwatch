@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ErrorMsg from '../components/ErrorMsg';
-import { disasterList, disasterTitles } from '../data/disasterTypes';
+import { DISASTER_LIST, DISASTER_TITLES } from '../data/disasters';
 import searchIcon from '../assets/search-icon.png';
 
 const Home = ({
@@ -12,7 +12,7 @@ const Home = ({
   locationError,
   setLocationError,
 }) => {
-  const [selectedDisaster, setSelectedDisaster] = useState(disasterList[0]);
+  const [selectedDisaster, setSelectedDisaster] = useState(DISASTER_LIST[0]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,8 +25,8 @@ const Home = ({
     history.push(`/${selectedDisaster}`);
   };
 
-  const disasterDropdown = disasterList.map(
-    (disaster) => <option key={disaster} value={disaster}>{disasterTitles[disaster]}</option>,
+  const disasterDropdown = DISASTER_LIST.map(
+    (disaster) => <option key={disaster} value={disaster}>{DISASTER_TITLES[disaster]}</option>,
   );
 
   return (
@@ -44,7 +44,7 @@ const Home = ({
           <select
             name="disaster-option"
             id="disaster-option"
-            defaultValue={disasterList[0]}
+            defaultValue={DISASTER_LIST[0]}
             onChange={(e) => setSelectedDisaster(e.target.value)}
             className="border border-gray-800 rounded-md h-10 p-2 mx-2 focus:outline-none focus:shadow-outline"
           >

@@ -1,15 +1,15 @@
-export const disasterTitles = {
+export const DISASTER_TITLES = {
   wildfire: 'Wildfire',
   earthquake: 'Earthquake',
   tornado: 'Tornado',
   hurricane: 'Hurricane',
 };
 
-export const disasterNames = {
+export const DISASTER_TYPES = {
   wildfire: 'wildfire',
   earthquake: 'earthquake',
   tornado: 'tornado',
   hurricane: 'hurricane',
 };
 
-export const disasterList = ['wildfire', 'earthquake', 'tornado', 'hurricane'];
+export const DISASTER_LIST = ['wildfire', 'earthquake', 'tornado', 'hurricane'];

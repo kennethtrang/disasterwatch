@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import VideoItem from './VideoItem';
-import { disasterList } from '../../data/disasterTypes';
+import { DISASTER_LIST } from '../../data/disasters';
 
 const VIDEOS = gql`
   query Videos($searchParams: SearchInput!) {
@@ -38,7 +38,7 @@ const VideoContent = ({ disaster, location }) => {
 };
 
 VideoContent.propTypes = {
-  disaster: PropTypes.oneOf(disasterList).isRequired,
+  disaster: PropTypes.oneOf(DISASTER_LIST).isRequired,
   location: PropTypes.string.isRequired,
 };
 
