@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import VideoItem from './VideoItem';
+import { disasterList } from '../../data/disasterTypes';
 
 const VIDEOS = gql`
   query Videos($searchParams: SearchInput!) {
@@ -33,6 +35,11 @@ const VideoContent = ({ disaster, location }) => {
       </div>
     </div>
   );
+};
+
+VideoContent.propTypes = {
+  disaster: PropTypes.oneOf(disasterList).isRequired,
+  location: PropTypes.string.isRequired,
 };
 
 export default VideoContent;

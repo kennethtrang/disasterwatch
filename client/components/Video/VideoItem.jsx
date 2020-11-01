@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const VideoItem = ({ videoId }) => (
   <div className="video-item-wrapper m-4">
@@ -14,5 +15,9 @@ const VideoItem = ({ videoId }) => (
     />
   </div>
 );
+
+VideoItem.propTypes = {
+  videoId: PropTypes.string.isRequired,
+};
 
 export default VideoItem;

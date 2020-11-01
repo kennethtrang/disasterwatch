@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 import { statesAbbreviations, statesNames } from '../../data/states';
@@ -118,6 +119,11 @@ const UserForm = ({ type, setIsFormOpen }) => {
       </button>
     </div>
   );
+};
+
+UserForm.propTypes = {
+  type: PropTypes.oneOf(['login', 'signup']).isRequired,
+  setIsFormOpen: PropTypes.func.isRequired,
 };
 
 export default UserForm;

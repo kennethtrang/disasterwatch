@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import ErrorMsg from '../components/ErrorMsg';
 import { disasterList, disasterTitles } from '../data/disasterTypes';
 import searchIcon from '../assets/search-icon.png';
@@ -71,6 +72,18 @@ const Home = ({
       }
     </div>
   );
+};
+
+Home.propTypes = {
+  logo: PropTypes.string.isRequired,
+  location: PropTypes.string,
+  setLocation: PropTypes.func.isRequired,
+  locationError: PropTypes.bool.isRequired,
+  setLocationError: PropTypes.func.isRequired,
+};
+
+Home.defaultProps = {
+  location: '',
 };
 
 export default Home;

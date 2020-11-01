@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const NewsItem = ({ article }) => {
   const {
@@ -20,6 +21,17 @@ const NewsItem = ({ article }) => {
       </div>
     </a>
   );
+};
+
+NewsItem.propTypes = {
+  article: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    source: PropTypes.string,
+    publishedAt: PropTypes.string,
+    urlToImage: PropTypes.string,
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default NewsItem;

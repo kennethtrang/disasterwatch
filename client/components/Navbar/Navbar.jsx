@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Tab from './Tab';
 import UserForm from './UserForm';
 import { disasterTitles } from '../../data/disasterTypes';
@@ -68,6 +69,10 @@ const Navbar = ({ logo }) => {
       }
     </>
   );
+};
+
+Navbar.propTypes = {
+  logo: PropTypes.string.isRequired,
 };
 
 export default Navbar;

@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import NewsItem from './NewsItem';
+import { disasterList } from '../../data/disasterTypes';
 
 const NEWS = gql`
   query News($searchParams: SearchInput!) {
@@ -39,6 +41,11 @@ const NewsContent = ({ disaster, location }) => {
       </div>
     </div>
   );
+};
+
+NewsContent.propTypes = {
+  disaster: PropTypes.oneOf(disasterList).isRequired,
+  location: PropTypes.string.isRequired,
 };
 
 export default NewsContent;
