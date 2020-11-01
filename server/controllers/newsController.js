@@ -23,8 +23,9 @@ const newsController = {
       );
 
       return data.articles;
-    } catch (e) {
-      console.log('Error in getNews: ', e);
+    } catch (error) {
+      console.log('Error in getNews: ', error);
+      return error;
     }
   },
 };

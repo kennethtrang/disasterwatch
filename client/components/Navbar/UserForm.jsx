@@ -8,7 +8,6 @@ const SIGN_UP = gql`
   mutation SignUp($newUser: NewUserInput!) {
     signUp(input: $newUser) {
       id
-      username
       email
       city
       state
@@ -17,9 +16,8 @@ const SIGN_UP = gql`
 `;
 
 const UserForm = ({ type, setIsFormOpen }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [signUpUser, { data, loading, error }] = useMutation(
@@ -30,7 +28,6 @@ const UserForm = ({ type, setIsFormOpen }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({
-      username,
       password,
       email,
       city,
@@ -39,9 +36,8 @@ const UserForm = ({ type, setIsFormOpen }) => {
     signUpUser({
       variables: {
         newUser: {
-          username,
-          password,
           email,
+          password,
           city,
           state,
         },
@@ -53,14 +49,14 @@ const UserForm = ({ type, setIsFormOpen }) => {
   return (
     <div className="w-screen h-auto fixed bg-white mt-16 flex justify-between items-center">
       <form onSubmit={handleSubmit} className="flex flex-wrap items-center mx-8 p-3">
-        <label htmlFor="username" className="m-1">
-          Username:
+        <label htmlFor="email" className="m-1">
+          Email:
           {' '}
           <input
-            id="username"
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            id="email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="border-2 border-gray-500 rounded px-1"
           />
         </label>
@@ -79,17 +75,6 @@ const UserForm = ({ type, setIsFormOpen }) => {
           type === 'signup'
           && (
             <>
-              <label htmlFor="email" className="m-1">
-                Email:
-                {' '}
-                <input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="border-2 border-gray-500 rounded px-1"
-                />
-              </label>
               <label htmlFor="city" className="m-1">
                 City:
                 {' '}
@@ -111,7 +96,7 @@ const UserForm = ({ type, setIsFormOpen }) => {
                   onChange={(e) => setState(e.target.value)}
                 >
                   {
-                    statesAbbreviations.map((state) => <option key={state} value={statesNames.state}>{state}</option>)
+                    statesAbbreviations.map((stateAbbr) => <option key={stateAbbr} value={statesNames.stateAbbr}>{stateAbbr}</option>)
                   }
                 </select>
               </label>

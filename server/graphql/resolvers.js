@@ -1,5 +1,6 @@
 const newsController = require('../controllers/newsController');
 const videoController = require('../controllers/videoController');
+const authController = require('../controllers/authController');
 
 const resolvers = {
   Query: {
@@ -35,7 +36,8 @@ const resolvers = {
     signUp: async (_, { input }) => {
       try {
         // authController
-        return input;
+        const user = await authController.signUp(input);
+        return user;
       } catch (error) {
         console.log('Error in signUp Mutation resolver: ', error);
         return error;

@@ -22,6 +22,9 @@ const startServer = async () => {
     const apolloServer = new ApolloServer({
       typeDefs,
       resolvers,
+      context: () => {
+
+      },
     });
 
     app.use(cors({
@@ -52,7 +55,7 @@ const startServer = async () => {
       });
     });
   } catch (e) {
-    console.log('Error starting server: ', e);
+    throw new Error(e);
   }
 };
 
